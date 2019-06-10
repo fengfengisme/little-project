@@ -1,0 +1,380 @@
+数据库
+count 函数
+1，查询学生总人数；
+select count(id) from student
+2，查询每个院系有多少人 （分组 group by）
+select count(id) from student group by department
+3，查询男女各有多少人数；
+4，查询英语系男女各有多少人；
+select count(id) from student where department='英语系' group by sex;
+5，查询姓张的男女各有多少人；
+6，查询各个年龄对应的学生人数，且按照年龄降序输出；
+max/min 函数
+1，查询计算机科目的最高分及学生姓名；
+select name,max(grade) from score,student 
+where score.stuId=student.id and courseName='计算机'; 
+2，查询英语成绩最低分及学生姓名；
+3，从score表中查询每个科目的最高分和最低分
+select courseName,max(grade),min(grade) from score group by courseName;
+4，从student表中查询出每个系学生的最大年龄和最小年龄
+avg 函数
+1，计算出学生的平均年龄；
+2，计算出中文系学生的平均年龄；
+3，计算出各系学生的平均年龄；
+4，计算出英语成绩的平均分；
+5，计算出各门课程的平均分；
+sum 函数
+1，计算出每个学生的总成绩；
+2，计算出各系学生的总年龄并升序排序；（order by 语句中带有函数）
+select department,sum(age) from student group by department order by sum(age);
+3，计算出各课程的总成绩并降序排序，
+
+装一个虚拟机（vmware，镜像文件（乌班图））
+
+python/java/c/c++   
+
+每一种语言都有开发环境/计算机只能识别0和1/a 0000 1111
+  ABC语言
+python:1989年 荷兰人 龟叔 
+简单
+复杂的库  
+胶水语言
+
+win+r  输入cmd 
+新建一个文本文档    用notepad++ 打开
+skt.py
+cd 表示进入下一层文件夹
+
+C:\Users\lenovo\Desktop
+
+#表示注释，代码不会运行
+#print("222222")  print表示输出的意思
+#数据类型   int 整数  float 浮点数  str 字符串  bool布尔
+#字符串一定要加双引号，加了双引号的一定是字符串
+#字符串是固定不变的 /字符串是不能进行加减乘除运算的
+#运算符  +-*/%
+#变量  用来保存数据和便于使用
+'''a=5
+b="10"
+print(a+b)'''
+
+#input()接收
+'''a=input("请输入一个数")
+print("==========")
+print(a)'''
+#input接受的数据全部默认为字符串 "aaaa"
+#进行类型的转换   	"1111"  aaa  "10" "aaa"  aaa
+'''print("请输入一个数")
+a=input()
+a=int(a)
+a=a+10  
+print(a)'''
+#占位符  填空  %d整数型占位符   %f浮点型占位符
+#%s字符串占位符  11.1  11  \t制表符
+'''print("请输入两个数")
+a=input() #10
+b=input() #20   10+20=30
+a=int(a)
+b=int(b)
+print("%.1fdvxvxgfb+\t%.1fefsdgsd=xvxcvx%.1f"%(11.9,12.2,11.9+12.2))
+'''
+#print后面+end=""
+'''print("111",end="")
+print("2222")'''
+#接受用户的姓名和年龄及住宅并输出（年龄+10之后输出）
+'''print("请输入姓名/年龄/住址")
+name=input()
+age=input()
+address=input()
+age=int(age)+10
+'''
+#选择结构  +-*/%  > <  >= <= !=
+#bool布尔类型  True条件成立  False条件不成立
+'''if(条件):
+	执行程序
+'''	
+#缩进表示从属
+'''print("请输入成绩")
+score=int(input())
+if(score>=60):
+	print("及格")
+	print("程序结束")'''
+#输入一个数，判断是不是偶数
+'''print("请输入一个数")
+a=int(input())
+if(a%2==0):
+	print("偶数")
+else:  
+	print("不是偶数")'''
+#and且  or或者 连接条件
+#print((5>3 or 5>6) and 5>1)
+#输入一个年份，判断是不是闰年
+#能被4整除不能被一百整除的是闰年，或者能被400整除的是闰年
+#4是闰年100不是闰年400是闰年
+'''print("请输入年份")
+year=int(input())
+if(year%4==0 and year%100!=0 or year%400==0):
+	print("是闰年")
+else:
+	print("不是闰年")'''
+
+#用户输入三个数，输出最大的那个数
+'''print("请输入三个数")
+a=int(input())
+b=int(input())
+c=int(input())
+max=a
+if(a<b):
+	max=b
+if(max<c):
+	max=c
+print(max)
+if(a>=b>=c or a>=c>=b):
+	max=a
+if(b>=c>=a or b>=a>=c):
+	max=b	
+if(c>=a>=b or c>=b>=a):
+	max=c	
+print(max)	'''
+	
+'''if(条件)：
+	执行程序
+elif(条件1)：
+	执行程序
+elif(条件2)：
+	执行程序
+else:
+	执行程序
+	'''	
+#用户输入成绩，判断等级，90-100A，80-90B，70-80C
+#60-70D，0-60E	
+'''print("请输入成绩")
+score=float(input())
+level=""
+if(score>=90 and score<=100):
+	level="A"
+elif(score>=80):
+	level="B"
+elif(score>=70):
+	level="C"
+elif(score>=60):
+	level="D"
+else:
+	level="E"
+print(level)'''
+#登陆程序  用户名和密码
+'''print("请输入用户名")
+name=input()
+print("请输入密码")
+password=input()
+if(name=="  admin"and password=="admin"):
+	print("登陆成功")
+else:
+	print("登陆失败")'''
+#产生一个随机数
+#用户登陆，成功开始游戏，用户选择，大，小，豹子
+#三个骰子3-18，3-10代表小 11-18代表大，豹子通吃
+#判断用户输赢，
+#失败则提示输入错误
+'''import random #导包
+print("请输入用户名")
+name=input()
+print("请输入密码")
+password=input()
+if(name=="admin" and password=="admin"):
+	print("请选择：1.大 2.小 3.豹子")
+	choose=input()
+	a=random.randint(1,6)
+	b=random.randint(1,6)
+	c=random.randint(1,6)
+	if(a==b and b==c):
+		if(choose=="3"):
+			print("恭喜你，中豹子了")
+		else:
+			print("你输了")
+	else:
+		if(a+b+c>=11):
+			if(choose=="1"):
+				print("恭喜你，你赢了")
+			else:
+				print("你输了")
+		else:
+			if(choose=="2"):
+				print("你赢了")
+			else:
+				print("你输了")
+	print(a,b,c)
+	
+else:
+	print("登陆失败")'''
+	
+#1石头/剪刀/布，1代表石头，2.代表剪刀，3代表布，
+#人选择，电脑随机，判断输赢
+#2.用户输入年份和月份，得到这个月有多少天
+#3用户输入一个数，如果是3的倍数打印hello
+#如果是5的倍数打印world，如果是3的倍数且又是
+#5的倍数打印hello.world
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
